@@ -1,8 +1,8 @@
 install: #установить зависимости
 	npm ci
 
-brain-games: #запуск игры
-	node bin/brain-games.js
+brain-even: #запуск игры на четность
+	node bin/brain-even.js
 
 publish: #апустить отладку публикации
 	sudo npm publish --dry-run
