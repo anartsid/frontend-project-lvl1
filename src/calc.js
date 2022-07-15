@@ -1,5 +1,5 @@
 import readlineSync from 'readline-sync';
-import brainlogic from './logic.js';
+import brainlogic from './index.js';
 
 export const gametranscription = () => 'What is the result of the expression?';
 
