@@ -1,26 +1,25 @@
 import readlineSync from 'readline-sync';
+import brainlogic from './logic.js';
 
-const secondquestion = () => {
-  const userName = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${userName}!`);
-  console.log('Answer "yes" if the number is even, otherwise answer "no".');
+export const gametranscription = () => 'Answer "yes" if the number is even, otherwise answer "no".';
 
-  for (let i = 1; i <= 3; i += 1) {
-    const number = Math.floor(Math.random() * 100) + 1;
-    const answer = readlineSync.question(`Question: ${number}`);
-    console.log(`Your answer: ${answer}`);
-
-    const checkeven = (number % 2 === 0) && (answer === 'no');
-    const checkuneven = (number % 2 !== 0) && (answer === 'yes');
-
-    if (checkeven === true || checkuneven === true) {
-      const opposit = (answer === 'yes' ? 'no' : 'yes');
-      return `${answer} is wrong answer ;(. Correct answer was '${opposit}'.
-Let's try again, ${userName}`;
-    }
-    console.log('Correct!');
-  }
-  return `Congratulations, ${userName}!`;
+export const question = () => {
+  const n1 = Math.floor(Math.random() * 100) + 1;
+  const answer = readlineSync.question(`Question: ${n1} \n`);
+  console.log(`Your answer: ${answer}`);
+  return { n1, answer };
 };
 
-export default secondquestion;
+export const correctanswer = (mySuperObj) => {
+  const { n1, answer } = mySuperObj;
+  const checkeven = (n1 % 2 === 0) && (answer === 'no');
+  const checkuneven = (n1 % 2 !== 0) && (answer === 'yes');
+
+  if (checkeven === true || checkuneven === true) {
+    const opposit = (answer === 'yes' ? 'no' : 'yes');
+    return opposit;
+  }
+  return answer;
+};
+
+export const brainEven = () => { brainlogic(gametranscription, question, correctanswer); };
