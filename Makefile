@@ -7,6 +7,9 @@ brain-even: #запуск игры на четность
 brain-calc: #запуск игры калькулятор
 	node bin/brain-calc.js
 
+brain-gcd: #запуск игры наибольший общий делитель
+	node bin/brain-gcd.js
+
 publish: #запустить отладку публикации
 	npm publish --dry-run
 
