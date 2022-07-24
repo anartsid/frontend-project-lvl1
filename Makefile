@@ -10,6 +10,9 @@ brain-calc: #запуск игры калькулятор
 brain-gcd: #запуск игры наибольший общий делитель
 	node bin/brain-gcd.js
 
+brain-progression: #запуск игры прогрессии
+	node bin/brain-progression.js
+
 publish: #запустить отладку публикации
 	npm publish --dry-run
 

@@ -4,4 +4,5 @@
 
 аскинема на первую игру brain-even (https://asciinema.org/a/505847)
 аскинема на вторую игру brain-calc (https://asciinema.org/a/508905)
-аскинема на вторую игру brain-gcd (https://asciinema.org/a/509275)
+аскинема на третью игру brain-gcd (https://asciinema.org/a/509275)
+аскинема на четвертую игру brain-progression (https://asciinema.org/a/510512)
