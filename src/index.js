@@ -1,24 +1,34 @@
 import readlineSync from 'readline-sync';
 
-const brainlogic = (gametranscription, question, correctanswer) => {
+export function random(min, max) {
+  let rand = Math.floor(Math.random() * (max - min + 1)) + min;
+  return Math.floor(rand);
+} // это функция, которую я пробую использовать в even.js для генерации случайных чисел
+
+//export const random = (min, max) => {
+  //return Math.floor(Math.random() * (max - min + 1)) + min;
+//}; здесь я пробовала представить константой
+
+function brainlogic(gameDescription, question, correctanswer) {
   console.log('Welcome to the Brain Games!');
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!`);
-  console.log(gametranscription());
+  console.log(gameDescription);
 
   for (let i = 1; i <= 3; i += 1) {
-    const obj = question();
 
-    const cAnswer = correctanswer(obj);
+    const questionNumber = question();
+    const answer = readlineSync.question(`Question: ${questionNumber.expression} \nYour answer: `);
+    const cAnswer = correctanswer(questionNumber);
 
-    if (obj.answer != cAnswer) {
-      console.log(`${obj.answer} is wrong answer ;(. Correct answer was '${cAnswer}'.
+    if (answer != cAnswer) {
+      console.log(`${answer} is wrong answer ;(. Correct answer was '${cAnswer}'.
 Let's try again, ${userName}`);
       return;
     }
     console.log('Correct!');
   }
   console.log(`Congratulations, ${userName}!`);
-};
+}
 
 export default brainlogic;

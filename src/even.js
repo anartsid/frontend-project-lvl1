@@ -1,25 +1,25 @@
 import readlineSync from 'readline-sync';
 import brainlogic from './index.js';
+import random from './index.js';
 
-export const gametranscription = () => 'Answer "yes" if the number is even, otherwise answer "no".';
+export const gameDescription = 'Answer "yes" if the number is even, otherwise answer "no".';
 
 export const question = () => {
-  const n1 = Math.floor(Math.random() * 100) + 1;
-  const answer = readlineSync.question(`Question: ${n1} \n`);
-  console.log(`Your answer: ${answer}`);
-  return { n1, answer };
+  const n1 = Math.floor(Math.random() * 100) + 1; // это решение работает
+  //const n1 = random(0, 100); // это попытка его изменить, которая приводит к ошибке
+
+  const expression =`${n1}`;
+  return {
+    n1, expression,
+  };
 };
 
-export const correctanswer = (mySuperObj) => {
-  const { n1, answer } = mySuperObj;
-  const checkeven = (n1 % 2 === 0) && (answer === 'no');
-  const checkuneven = (n1 % 2 !== 0) && (answer === 'yes');
+export const correctanswer = ({ n1 }) => {
 
-  if (checkeven === true || checkuneven === true) {
-    const opposit = (answer === 'yes' ? 'no' : 'yes');
-    return opposit;
+if (n1 % 2 === 0) {
+    return 'yes';
   }
-  return answer;
+  return 'no';
 };
 
-export const brainEven = () => { brainlogic(gametranscription, question, correctanswer); };
+export const brainEven = () => { brainlogic(gameDescription, question, correctanswer); };

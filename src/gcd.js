@@ -1,14 +1,13 @@
 import readlineSync from 'readline-sync';
 import brainlogic from './index.js';
 
-export const gametranscription = () => 'Find the greatest common divisor of given numbers.';
+export const gameDescription = 'Find the greatest common divisor of given numbers.';
 
 export const question = () => {
   const n1 = Math.floor(Math.random() * 100) + 1;
   const n2 = Math.floor(Math.random() * 100) + 1;
-  const answer = readlineSync.question(`Question: ${n1}  ${n2} \n`);
-  console.log(`Your answer: ${answer}`);
-  return { n1, n2, answer };
+  const expression = `${n1}  ${n2}`;
+  return { n1, n2, expression };
 };
 
 export const correctanswer = ({ n1, n2 }) => {
@@ -27,4 +26,4 @@ export const correctanswer = ({ n1, n2 }) => {
   return cAns;
 };
 
-export const brainGcd = () => { brainlogic(gametranscription, question, correctanswer); };
+export const brainGcd = () => { brainlogic(gameDescription, question, correctanswer); };

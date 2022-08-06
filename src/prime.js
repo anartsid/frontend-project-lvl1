@@ -1,13 +1,12 @@
 import readlineSync from 'readline-sync';
 import brainlogic from './index.js';
 
-export const gametranscription = () => 'Answer "yes" if given number is prime. Otherwise answer "no".';
+export const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 export const question = () => {
   const n1 = Math.floor(Math.random() * 100) + 1;
-  const answer = readlineSync.question(`Question: ${n1} \n`);
-  console.log(`Your answer: ${answer}`);
-  return { n1, answer };
+  const expression = `${n1}`;
+  return { n1, expression };
 };
 
 export const correctanswer = ({ n1 }) => {
@@ -23,4 +22,4 @@ export const correctanswer = ({ n1 }) => {
   return 'yes';
 };
 
-export const brainPrime = () => { brainlogic(gametranscription, question, correctanswer); };
+export const brainPrime = () => { brainlogic(gameDescription, question, correctanswer); };

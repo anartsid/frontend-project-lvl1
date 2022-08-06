@@ -1,7 +1,7 @@
 import readlineSync from 'readline-sync';
 import brainlogic from './index.js';
 
-export const gametranscription = () => 'What number is missing in the progression?';
+export const gameDescription = 'What number is missing in the progression?';
 
 export const question = () => {
   const num1 = Math.floor(Math.random() * 100) + 1;
@@ -22,13 +22,12 @@ export const question = () => {
 
   const arrow = startarrow.join(' ');
 
-  const answer = readlineSync.question(`Question: ${arrow}\n`);
-  console.log(`Your answer: ${answer}`);
+  const expression = `${arrow}`
   return {
-    answer, arrow, correctPoint,
+    expression, arrow, correctPoint,
   };
 };
 
 export const correctanswer = ({ correctPoint }) => correctPoint;
 
-export const brainProgression = () => { brainlogic(gametranscription, question, correctanswer); };
+export const brainProgression = () => { brainlogic(gameDescription, question, correctanswer); };
