@@ -1,23 +1,18 @@
-import readlineSync from 'readline-sync';
-import brainlogic from './index.js';
-//import randomNumber from './index.js';
+import brainlogic, { random } from './index.js';
 
 export const gameDescription = 'What is the result of the expression?';
-
-const number1 = () => Math.floor(Math.random() * 100) + 1;
-const number2 = () => Math.floor(Math.random() * 100) + 1;
 
 const allSign = ['+', '-', '*'];
 const rand = () => Math.floor(Math.random() * allSign.length);
 const signrand = () => allSign[rand()];
 
 export const question = () => {
-  const n1 = number1();
-  const n2 = number2();
+  const n1 = random();
+  const n2 = random();
   const sign = signrand();
-  const expression =`${n1} ${sign} ${n2}`;
+  const expression = `${n1} ${sign} ${n2}`;
   return {
-    expression, n1, n2, sign, 
+    expression, n1, n2, sign,
   };
 };
 

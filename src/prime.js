@@ -1,10 +1,9 @@
-import readlineSync from 'readline-sync';
-import brainlogic from './index.js';
+import brainlogic, { random } from './index.js';
 
 export const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 export const question = () => {
-  const n1 = Math.floor(Math.random() * 100) + 1;
+  const n1 = random();
   const expression = `${n1}`;
   return { n1, expression };
 };
