@@ -1,4 +1,5 @@
-import brainlogic, { random } from './index.js';
+import brainlogic from './index.js';
+import random from '../utils.js';
 
 export const gameDescription = 'What is the result of the expression?';
 
@@ -7,8 +8,8 @@ const rand = () => Math.floor(Math.random() * allSign.length);
 const signrand = () => allSign[rand()];
 
 export const question = () => {
-  const n1 = random();
-  const n2 = random();
+  const n1 = random(1, 100);
+  const n2 = random(1, 100);
   const sign = signrand();
   const expression = `${n1} ${sign} ${n2}`;
   return {

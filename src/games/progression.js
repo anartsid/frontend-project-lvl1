@@ -1,10 +1,11 @@
-import brainlogic, { random } from './index.js';
+import brainlogic from './index.js';
+import random from '../utils.js';
 
 export const gameDescription = 'What number is missing in the progression?';
 
 export const question = () => {
-  const num1 = random();
-  const step = random();
+  const num1 = random(1, 100);
+  const step = random(1, 100);
 
   const startarrow = [num1];
 

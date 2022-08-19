@@ -1,7 +1,5 @@
 import readlineSync from 'readline-sync';
 
-export const random = () => Math.floor(Math.random() * 100) + 1;
-
 function brainlogic(gameDescription, question, correctanswer) {
   console.log('Welcome to the Brain Games!');
   const userName = readlineSync.question('May I have your name? ');

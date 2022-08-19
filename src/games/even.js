@@ -1,9 +1,10 @@
-import brainlogic, { random } from './index.js';
+import brainlogic from './index.js';
+import random from '../utils.js';
 
 export const gameDescription = 'Answer "yes" if the number is even, otherwise answer "no".';
 
 export const question = () => {
-  const n1 = random();
+  const n1 = random(1, 100);
 
   const expression = `${n1}`;
   return {

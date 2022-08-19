@@ -1,10 +1,11 @@
-import brainlogic, { random } from './index.js';
+import brainlogic from './index.js';
+import random from '../utils.js';
 
 export const gameDescription = 'Find the greatest common divisor of given numbers.';
 
 export const question = () => {
-  const n1 = random();
-  const n2 = random();
+  const n1 = random(1, 100);
+  const n2 = random(1, 100);
   const expression = `${n1}  ${n2}`;
   return { n1, n2, expression };
 };
