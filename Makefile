@@ -13,13 +13,14 @@ brain-gcd: #запуск игры наибольший общий делител
 brain-progression: #запуск игры прогрессии
 	node bin/brain-progression.js
 
-
 brain-prime: #запуск игры на простые числа
 	node bin/brain-prime.js
-
 
 publish: #запустить отладку публикации
 	npm publish --dry-run
 
 lint: #запустить eslint
 	npx eslint .
+
+brain-games: #запуск игры
+	node bin/brain-games.js
