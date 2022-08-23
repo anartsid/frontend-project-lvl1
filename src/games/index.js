@@ -13,7 +13,7 @@ function brainlogic(gameDescription, question, correctanswer) {
 
     if (answer != cAnswer) {
       console.log(`${answer} is wrong answer ;(. Correct answer was '${cAnswer}'.
-Let's try again, ${userName}`);
+Let's try again, ${userName}!`);
       return;
     }
     console.log('Correct!');
