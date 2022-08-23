@@ -6,7 +6,7 @@ export const gameDescription = 'Find the greatest common divisor of given number
 export const question = () => {
   const n1 = random(1, 100);
   const n2 = random(1, 100);
-  const expression = `${n1}  ${n2}`;
+  const expression = `${n1} ${n2}`;
   return { n1, n2, expression };
 };
 
