@@ -11,7 +11,7 @@ function brainlogic(gameDescription, question, correctanswer) {
     const answer = readlineSync.question(`Question: ${questionNumber.expression} \nYour answer: `);
     const cAnswer = correctanswer(questionNumber);
 
-    if (answer != cAnswer) {
+    if (answer !== cAnswer) {
       console.log(`${answer} is wrong answer ;(. Correct answer was '${cAnswer}'.
 Let's try again, ${userName}!`);
       return;

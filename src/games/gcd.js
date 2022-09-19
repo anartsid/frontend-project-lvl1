@@ -13,9 +13,9 @@ export const question = () => {
 export const correctanswer = ({ n1, n2 }) => {
   const min = (n1 < n2) ? n1 : n2;
   const max = (n1 > n2) ? n1 : n2;
-  let cAns = '';
+  let cAns = max;
 
-  for (let i = min; cAns = i; i -= 1) {
+  for (let i = min; cAns >= i; i -= 1) {
     if (min % i === 0) {
       if (max % i === 0) {
         cAns = i;
