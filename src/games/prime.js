@@ -7,7 +7,7 @@ export const ask = () => {
   const n1 = random(1, 100);
   const expression = `${n1}`;
 
-  let correctanswer = '';
+  let correctanswer = 'yes';
   if (n1 <= 3) {
     correctanswer = 'yes';
   }
