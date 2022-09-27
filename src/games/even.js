@@ -1,22 +1,18 @@
-import brainlogic from './index.js';
+import brainlogic from '../index.js';
 import random from '../utils.js';
 
 export const gameDescription = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-export const question = () => {
+export const ask = () => {
   const n1 = random(1, 100);
 
   const expression = `${n1}`;
+
+  const correctanswer = (n1 % 2 === 0) ? 'yes' : 'no';
+
   return {
-    n1, expression,
+    expression, correctanswer,
   };
 };
 
-export const correctanswer = ({ n1 }) => {
-  if (n1 % 2 === 0) {
-    return 'yes';
-  }
-  return 'no';
-};
-
-export const brainEven = () => { brainlogic(gameDescription, question, correctanswer); };
+export const brainEven = () => { brainlogic(gameDescription, ask); };
