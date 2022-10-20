@@ -1,25 +1,29 @@
-import brainlogic from '../index.js';
+import play from '../index.js';
 import random from '../utils.js';
 
-export const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+const giveDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-export const ask = () => {
-  const n1 = random(1, 100);
-  const expression = `${n1}`;
-
-  let correctanswer = 'yes';
+function generateExpression(n1) {
+  let correctAnswer = 'yes';
   if (n1 <= 3) {
-    correctanswer = 'yes';
+    correctAnswer = 'yes';
   }
   for (let step = 2; step < n1; step += 1) {
     if (n1 % step === 0) {
-      correctanswer = 'no';
+      correctAnswer = 'no';
     }
   }
+}
+
+const getRound = () => {
+  const n1 = random(1, 100);
+  const expression = `${n1}`;
+
+  const correctAnswer = generateExpression(n1);
 
   return {
-    expression, correctanswer,
+    expression, correctAnswer,
   };
 };
 
-export const brainPrime = () => { brainlogic(gameDescription, ask); };
+export const playPrime = () => { play(giveDescription, getRound); };

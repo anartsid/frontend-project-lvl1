@@ -1,36 +1,39 @@
-import brainlogic from '../index.js';
+import play from '../index.js';
 import random from '../utils.js';
 
-export const gameDescription = 'What is the result of the expression?';
+const giveDescription = 'What is the result of the expression?';
 
-const allSign = ['+', '-', '*'];
-const rand = () => Math.floor(Math.random() * allSign.length);
-const signrand = () => allSign[rand()];
+function generateExpression(n1, n2, sign) {
+  let correctAnswer = 0;
+  switch (sign) {
+    case '+':
+      correctAnswer = n1 + n2;
+      break;
 
-export const ask = () => {
+    case '-':
+      correctAnswer = n1 - n2;
+      break;
+
+    default:
+      correctAnswer = n1 * n2;
+      break;
+  }
+}
+
+const getRound = () => {
+  const allSign = ['+', '-', '*'];
+  const rand = random(1,allSign.length);
+  const signrand = () => allSign[rand()];
   const n1 = random(1, 100);
   const n2 = random(1, 100);
   const sign = signrand();
   const expression = `${n1} ${sign} ${n2}`;
 
-  let correctanswer = 0;
-  switch (sign) {
-    case '+':
-      correctanswer = n1 + n2;
-      break;
-
-    case '-':
-      correctanswer = n1 - n2;
-      break;
-
-    default:
-      correctanswer = n1 * n2;
-      break;
-  }
-
+  const correctAnswer = generateExpression(n1, n2, sign);
+  
   return {
-    expression, correctanswer,
+    expression, correctAnswer,
   };
 };
 
-export const brainCalc = () => { brainlogic(gameDescription, ask); };
+export const playCalc = () => { play(giveDescription, getRound); };

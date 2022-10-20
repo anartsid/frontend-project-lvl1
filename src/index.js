@@ -1,19 +1,19 @@
 import readlineSync from 'readline-sync';
 
-function brainlogic(gameDescription, ask) {
+function play(giveDescription, getRound) {
   console.log('Welcome to the Brain Games!');
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!`);
-  console.log(gameDescription);
+  console.log(giveDescription);
 
   for (let i = 1; i <= 3; i += 1) {
-    const questionNumber = ask();
-    const answer = readlineSync.question(`Question: ${questionNumber.expression} \nYour answer: `);
-    const newcAnswer = String(questionNumber.correctanswer);
+    const question = getRound();
+    const userAnswer = readlineSync.question(`Question: ${question.expression} \nYour answer: `);
+    const checkAnswer = String(question.correctAnswer);
 
-    if (answer !== newcAnswer) {
-      console.log(`${answer} is wrong answer ;(. Correct answer was '${newcAnswer}'.
-Let's try again, ${userName}!`);
+    if (userAnswer !== checkAnswer) {
+      console.log(`${userAnswer} is wrong answer ;(. Correct answer was '${checkAnswer}'.`);
+      console.log(`Let's try again, ${userName}!`);
       return;
     }
     console.log('Correct!');
@@ -21,4 +21,4 @@ Let's try again, ${userName}!`);
   console.log(`Congratulations, ${userName}!`);
 }
 
-export default brainlogic;
+export default play;
