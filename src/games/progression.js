@@ -14,23 +14,27 @@ function generateExpression(num1, step) {
 
   const point = '..';
   const e = Math.floor(Math.random() * 6) + 1;
-  const correctAnswer = startarrow[e];
+  const correct = startarrow[e];
   startarrow[e] = point;
 
   const arrow = startarrow.join(' ');
+
+  return [arrow, correct];
 }
 
 const getRound = () => {
   const num1 = random(1, 100);
   const step = random(1, 100);
 
-  const expression = `${generateExpression.arrow}`;
-  const correctAnswer = generateExpression(num1, step);
-
+  const values = generateExpression(num1, step);
+  const expression = `${values[0]}`;
+  const correctAnswer = values[1];
 
   return {
     expression, correctAnswer,
   };
 };
 
-export const playProgression = () => { play(giveDescription, getRound); };
+const playProgression = () => { play(giveDescription, getRound); };
+
+export default playProgression;

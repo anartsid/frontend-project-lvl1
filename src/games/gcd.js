@@ -16,6 +16,7 @@ function generateExpression(n1, n2) {
       }
     }
   }
+  return correctAnswer;
 }
 
 const getRound = () => {
@@ -30,4 +31,6 @@ const getRound = () => {
   };
 };
 
-export const playGcd = () => { play(giveDescription, getRound); };
+const playGcd = () => { play(giveDescription, getRound); };
+
+export default playGcd;

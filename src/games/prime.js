@@ -13,6 +13,8 @@ function generateExpression(n1) {
       correctAnswer = 'no';
     }
   }
+
+  return correctAnswer;
 }
 
 const getRound = () => {
@@ -26,4 +28,6 @@ const getRound = () => {
   };
 };
 
-export const playPrime = () => { play(giveDescription, getRound); };
+const playPrime = () => { play(giveDescription, getRound); };
+
+export default playPrime;
