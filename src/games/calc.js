@@ -23,7 +23,7 @@ function generateExpression(n1, n2, sign) {
 }
 
 const getRound = () => {
-  const allSign = ['-', '*', '+'];
+  const allSign = [ , '-', '*', '+'];
   const rand = () => random(1, allSign.length);
   const signrand = () => allSign[rand()];
   const n1 = random(1, 100);
