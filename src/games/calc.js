@@ -1,7 +1,7 @@
 import play from '../index.js';
 import random from '../utils.js';
 
-const giveDescription = 'What is the result of the expression?';
+const description = 'What is the result of the expression?';
 
 function generateExpression(n1, n2, sign) {
   let correctAnswer = 0;
@@ -23,21 +23,20 @@ function generateExpression(n1, n2, sign) {
 }
 
 const getRound = () => {
-  const allSign = ['-', '*', '+'];
-  const rand = () => random(0, allSign.length - 1);
-  const signrand = () => allSign[rand()];
+  const allSigns = ['-', '*', '+'];
+  const rand = random(0, allSigns.length - 1);
   const n1 = random(1, 100);
   const n2 = random(1, 100);
-  const sign = signrand();
+  const sign = allSigns[rand];
   const expression = `${n1} ${sign} ${n2}`;
 
-  const correctAnswer = generateExpression(n1, n2, sign);
+  const correctAnswer = String(generateExpression(n1, n2, sign));
 
   return {
     expression, correctAnswer,
   };
 };
 
-const playCalc = () => { play(giveDescription, getRound); };
+const playCalc = () => { play(description, getRound); };
 
 export default playCalc;

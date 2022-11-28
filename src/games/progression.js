@@ -1,7 +1,7 @@
 import play from '../index.js';
 import random from '../utils.js';
 
-const giveDescription = 'What number is missing in the progression?';
+const description = 'What number is missing in the progression?';
 
 function generateExpression(num1, step) {
   const startarrow = [num1];
@@ -28,13 +28,13 @@ const getRound = () => {
 
   const values = generateExpression(num1, step);
   const expression = `${values[0]}`;
-  const correctAnswer = values[1];
+  const correctAnswer = String(values[1]);
 
   return {
     expression, correctAnswer,
   };
 };
 
-const playProgression = () => { play(giveDescription, getRound); };
+const playProgression = () => { play(description, getRound); };
 
 export default playProgression;

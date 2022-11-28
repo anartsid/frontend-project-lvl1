@@ -1,7 +1,7 @@
 import play from '../index.js';
 import random from '../utils.js';
 
-const giveDescription = 'Find the greatest common divisor of given numbers.';
+const description = 'Find the greatest common divisor of given numbers.';
 
 function generateExpression(n1, n2) {
   const min = (n1 < n2) ? n1 : n2;
@@ -24,13 +24,13 @@ const getRound = () => {
   const n2 = random(1, 100);
   const expression = `${n1} ${n2}`;
 
-  const correctAnswer = generateExpression(n1, n2);
+  const correctAnswer = String(generateExpression(n1, n2));
 
   return {
     expression, correctAnswer,
   };
 };
 
-const playGcd = () => { play(giveDescription, getRound); };
+const playGcd = () => { play(description, getRound); };
 
 export default playGcd;
