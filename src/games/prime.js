@@ -3,25 +3,24 @@ import random from '../utils.js';
 
 const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-function generateExpression(n1) {
-  let correctAnswer = 'yes';
+const isPrime = (n1) => {
   if (n1 <= 3) {
-    correctAnswer = 'yes';
+    return 'yes';
   }
   for (let step = 2; step < n1; step += 1) {
     if (n1 % step === 0) {
-      correctAnswer = 'no';
+      return 'no';
     }
   }
-
-  return correctAnswer;
-}
+  return 'yes';
+};
 
 const getRound = () => {
   const n1 = random(1, 100);
   const expression = `${n1}`;
+  const checkisPrime = isPrime(n1) === 'yes' ? 'yes' : 'no';
 
-  const correctAnswer = String(generateExpression(n1));
+  const correctAnswer = String(checkisPrime);
 
   return {
     expression, correctAnswer,

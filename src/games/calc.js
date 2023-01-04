@@ -4,22 +4,16 @@ import random from '../utils.js';
 const description = 'What is the result of the expression?';
 
 function generateExpression(n1, n2, sign) {
-  let correctAnswer = 0;
   switch (sign) {
     case '+':
-      correctAnswer = n1 + n2;
-      break;
+      return n1 + n2;
 
     case '-':
-      correctAnswer = n1 - n2;
-      break;
+      return n1 - n2;
 
     default:
-      correctAnswer = n1 * n2;
-      break;
+      return n1 * n2;
   }
-
-  return correctAnswer;
 }
 
 const getRound = () => {

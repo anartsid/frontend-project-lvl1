@@ -3,10 +3,10 @@ import random from '../utils.js';
 
 const description = 'What number is missing in the progression?';
 
-function generateExpression(num1, step) {
+function generateExpression(num1, step, progressionLength) {
   const startarrow = [num1];
 
-  for (let i = 1; startarrow.length <= 7; i += 1) {
+  for (let i = 1; startarrow.length <= progressionLength; i += 1) {
     const item = startarrow[i];
     startarrow[i] = startarrow[i - 1] + step;
     startarrow.push(item);
@@ -25,8 +25,9 @@ function generateExpression(num1, step) {
 const getRound = () => {
   const num1 = random(1, 100);
   const step = random(1, 100);
+  const progressionLength = 7;
 
-  const values = generateExpression(num1, step);
+  const values = generateExpression(num1, step, progressionLength);
   const expression = `${values[0]}`;
   const correctAnswer = String(values[1]);
 

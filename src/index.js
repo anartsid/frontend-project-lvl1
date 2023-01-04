@@ -6,13 +6,12 @@ function play(description, getRound) {
   console.log(`Hello, ${userName}!`);
   console.log(description);
 
-  let roundsCount = 3; // число раундов
+  const roundsCount = 3; // число раундов
 
   for (let i = 1; i <= roundsCount; i += 1) {
-    //let {expression, correctAnswer} = getRound();
-    const question = getRound();
-    const userAnswer = readlineSync.question(`Question: ${question.expression} \nYour answer: `);
-    const checkAnswer = question.correctAnswer;
+    const round = getRound();
+    const userAnswer = readlineSync.question(`Question: ${round.expression} \nYour answer: `);
+    const checkAnswer = round.correctAnswer;
 
     if (userAnswer !== checkAnswer) {
       console.log(`${userAnswer} is wrong answer ;(. Correct answer was '${checkAnswer}'.`);
