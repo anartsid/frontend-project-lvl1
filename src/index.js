@@ -11,10 +11,9 @@ function play(description, getRound) {
   for (let i = 1; i <= roundsCount; i += 1) {
     const round = getRound();
     const userAnswer = readlineSync.question(`Question: ${round.expression} \nYour answer: `);
-    const checkAnswer = round.correctAnswer;
 
-    if (userAnswer !== checkAnswer) {
-      console.log(`${userAnswer} is wrong answer ;(. Correct answer was '${checkAnswer}'.`);
+    if (userAnswer !== round.correctAnswer) {
+      console.log(`${userAnswer} is wrong answer ;(. Correct answer was '${round.correctAnswer}'.`);
       console.log(`Let's try again, ${userName}!`);
       return;
     }
